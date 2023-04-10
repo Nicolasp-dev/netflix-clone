@@ -11,7 +11,7 @@ const Auth = () => {
   const toggleVariant = useCallback(()=>{
     setVariant((currentVariant) => currentVariant === 'login'? 'register': 'login')
   }, []);
-
+ 
 
   return (
     <div className="relative h-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
