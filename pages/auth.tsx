@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import axios from 'axios';
 import Input from '@/components/Input';
+import {signIn} from 'next-auth/react'
 
 const Auth = () => {
   const [email, setEmail] = useState('');
@@ -21,7 +22,21 @@ const Auth = () => {
     }catch(error){
       console.log(error)
     }
-  }, [email, name, password])
+  }, [email, name, password]);
+
+
+  const login = useCallback(async()=> {
+    try {
+      await signIn('credentials', {
+        email, 
+        password,
+        redirect:false, 
+        callbackUrl: '/'
+      });
+    } catch (error) {
+      console.log("Login Error", error)
+    }
+  }, [email, password])
 
 
   return (
@@ -56,7 +71,7 @@ const Auth = () => {
                   type="password" 
                   value={password} />
               </div>
-              <button onClick={register} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">{variant === 'login'? 'Login': 'Sign up' }</button>
+              <button onClick={variant === 'login'? login : register} className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">{variant === 'login'? 'Login': 'Sign up' }</button>
               <p className="text-neutral-500 mt-12">{variant === 'login' ? 'First time using netflix?':'Already have an account?'}
                 <span 
                 className="text-white ml-1 hover:underline cursor-pointer"
