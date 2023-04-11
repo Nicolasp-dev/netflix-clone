@@ -13,7 +13,7 @@ model User {
   image          String?
   email          String?   @unique
   emailVerified  DateTime?
-  hashedPasswird String?
+  hashedPassword String?
   createAt       DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
   favoriteIds    String[]  @db.ObjectId
@@ -40,30 +40,30 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-model Session{
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  sessionToken String @unique
-  userId String @db.ObjectId
-  expires DateTime
+model Session {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  sessionToken String   @unique
+  userId       String   @db.ObjectId
+  expires      DateTime
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model VerificationToken{
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+model VerificationToken {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   identifier String
-  token String @unique
-  expires DateTime
-  
+  token      String   @unique
+  expires    DateTime
+
   @@unique([identifier, token])
 }
 
 model Movie {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  title String
-  description String
-  videoUrl String
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  description  String
+  videoUrl     String
   thumbnailUrl String
-  genre String
-  duration String
+  genre        String
+  duration     String
 }
