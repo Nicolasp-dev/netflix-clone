@@ -10,6 +10,7 @@ const useBillboard = () => {
 
   return {
     data,
+    
     error,
     isLoading,
   };
