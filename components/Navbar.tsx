@@ -66,7 +66,7 @@ const toggleAccountMenu = useCallback(() => {
             <AccountMenu visible={showAccountMenu}/> 
           </div>      
         </div>        
-      </div>
+      </div> 
     </nav>
   )
 };
