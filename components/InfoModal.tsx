@@ -17,12 +17,12 @@ const InfoModal: React.FC<InfoModelProps> = ({visible, onClose}) => {
   const { data = {} } = useMovie(movieId);
 
   useEffect(() => {
-    setIsVisible(!!visible)
+    setIsVisible(!!visible);
   }, [visible]);
 
   const handleClose = useCallback(() => {
     setIsVisible(false);
-    setTimeout(() => onClose(), 300)
+    setTimeout(() => {onClose()}, 300)
   }, [onClose]);
 
   if(!visible) return null;
@@ -45,7 +45,9 @@ const InfoModal: React.FC<InfoModelProps> = ({visible, onClose}) => {
                 <AiOutlineClose className='text-white' size={20} />
               </div>
               <div className="absolute bottom-[10%] left-10">
-                <p className='text-white text-3xl md:text-4xl h-full lg:text-5xl font-bold mb-8 '>{data?.title}</p>
+                <p className='text-white text-3xl md:text-4xl h-full lg:text-5xl font-bold mb-8 '>
+                  {data?.title}
+                </p>
                 <div className="flex flex-row gap-4 items-center">
                   <PlayButton movieId={data?.id}/>
                   <FavoriteButton movieId={data?.id} />

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useCallback, useEffect, useState } from 'react'
 import { BsBell, BsChevronDown, BsSearch} from 'react-icons/bs'
 
