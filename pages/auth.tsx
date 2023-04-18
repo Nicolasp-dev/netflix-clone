@@ -42,7 +42,7 @@ const Auth = () => {
   }, [email, name, password, login]);
 
   return (
-    <div className="relative h-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
+    <div className="relative h-full bg-[url('/images/netflix-bg.avif')] bg-no-repeat bg-center bg-fixed bg-cover">
       <div className="bg-black w-full h-full lg:bg-opacity-50">
         <nav className='px-12 py-5'>
           <img src="/images/logo.png" alt="Logo" className="h-12"/>
@@ -80,10 +80,10 @@ const Auth = () => {
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
                   <FcGoogle size={30}/>
                 </div>
-                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition"
+                {/* <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition"
                 onClick={() => signIn('github', {callbackUrl: '/profiles'})}>
                   <FaGithub size={30}/>
-                </div>
+                </div> */}
               </div>
               profiles
               <p className="text-neutral-500 mt-12">{variant === 'login' ? 'First time using netflix?':'Already have an account?'}
